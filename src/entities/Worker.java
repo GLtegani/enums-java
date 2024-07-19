@@ -66,13 +66,13 @@ public class Worker {
       this.contracts.remove(contract);
    }
 
-   public double income(Integer year, Integer month) {
-      double sum = baseSalary;
+   public Double income(Integer year, Integer month) {
+      Double sum = baseSalary;
       for(HourContract contract : this.contracts) {
-         int contractYear = contract.getDate().getYear();
-         int contractMonth = contract.getDate().getMonthValue();
+         Integer contractYear = contract.getDate().getYear();
+         Integer contractMonth = contract.getDate().getMonthValue();
 
-         if (year == contractYear && month == contractMonth) {
+         if (contractYear.equals(year) && contractMonth.equals(month)) {
             sum += contract.totalValue();
          }
       }
